@@ -61,8 +61,30 @@ Key Features:
 ### dependencies
 - `npx shadcn-ui@latest add button`
 
-## Routing concepts
 ## Authentication
+- [Clerk](https://clerk.com/) 프로젝트 생성
+  - gmail 만 사용
+  - `.env` Clerk Key 추가
+    - NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY
+    - CLERK_SECRET_KEY
+    - .gitignore 에 .env 추가
+- app/layout.tsx 수정
+  - Root 에 Clerk Provider 추가
+- middleware.ts 생성
+  - 이제 Clerk 이 애플리케이션에 설치되어 마운트되었으므로, 어떤 페이지를 공개하고 어떤 페이지에 액세스하려면 인증이 필요한지 결정할 수 있습니다.
+  - middleware.ts 파일을 생성합니다. 애플리케이션이 src/ 디렉터리를 사용하는 경우, middleware.ts 파일은 src/ 폴더 안에 위치해야 합니다. src/ 디렉터리를 사용하지 않는 경우, .env.local과 함께 루트 디렉터리에 middleware.ts 파일을 배치합니다.
+  - 전체 애플리케이션이 보호 됩니다.
+- [app/(auth) 생성](https://clerk.com/docs/references/nextjs/custom-signup-signin-pages)
+  - sign-in 생성
+  - sign-up 생성
+  - .env 에 환경 변수 추가
+    - 이 값은 사용자가 로그인하거나 가입할 때, 그리고 각 컴포넌트의 하단에 있는 각 링크를 클릭할 때 컴포넌트의 동작을 제어합니다.
+- app/(auth)/layout.tsx 생성
+  - Clerk UI Layout
+
+### dependencies
+- `npm install @clerk/nextjs`
+
 ## Dark mode
 ## Database setup
 ## Local tunnel

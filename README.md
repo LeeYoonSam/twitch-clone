@@ -86,6 +86,31 @@ Key Features:
 - `npm install @clerk/nextjs`
 
 ## Dark mode
+- app/globals.css 수정
+  - 전체적으로 수정
+- public/spooky.svg 이미지 추가
+- app/(auth)/_components/logo.tsx 생성
+  - 로그인 박스 위에 보여줄 로고 컴포넌트
+- app/(auth)/layout.tsx 수정
+  - 로그인 창에서 보여줄 layout 수정
+- app/layout.tsx 수정
+  - 테마적용
+- Clerk - UserName 적용
+  - Clerk > Dashboard > Project
+  - User & Authentication > Email, Phone, Username
+    - Username 활성화
+    - 톱니바퀴 > Sign-in 비활성화
+
+### dependencies
+- `npm i @clerk/themes`
+- `npm install next-themes`
+
+### Note
+**Clerk - UserName 적용 후 로그인 플로우**
+1. 계정 로그인
+2. 유저명 입력하는 창 노출
+3. 유저명 입력 후 로그인
+
 ## Database setup
 ## Local tunnel
 ## Clerk webhook

@@ -112,6 +112,81 @@ Key Features:
 3. 유저명 입력 후 로그인
 
 ## Database setup
+- 동영상에는 PlanetScale 을 사용하지만 mysql 로 대체
+
+## Prisma
+1. Prisma 설치
+  - `npm i -D prisma`
+2. Prisma 초기화
+  - `npx prisma init`
+  - prisma/schema.prisma 폴더와 파일이 생김
+3. .evn 환경 변수 추가 `DATABASE_URL`
+4. schema.prisma 설정
+  - schema.prisma 모델 추가
+  - `npx prisma generate`
+  - `npx prisma db push`
+  - `npm i @prisma/client`
+  - `npx prisma studio` - 웹사이트로 prisma 스튜디오 열기
+
+### MySQL 로컬 설치 및 로그인 (Mac OS 기준)
+```bash
+brew install mysql
+```
+- mysql 설치
+
+```bash
+brew services start mysql
+...
+==> Successfully started `mysql` (label: homebrew.mxcl.mysql)
+```
+- mysql 서비스 시작
+
+```bash
+brew services stop mysql
+Stopping `mysql`... (might take a while)
+==> Successfully stopped `mysql` (label: homebrew.mxcl.mysql)
+```
+- mysql 서비스 종료
+
+```bash
+mysql -uroot
+```
+- `-u` 옵션은 유저 이름을 지칭
+- `root`는 기본 계정입니다. 해당계정으로 로그인하겠다는 것입니다. 
+- 디폴트로는 비밀번호가 설정되어 있지 않은데, 비밀번호를 설정하고 싶으면 로그인 전에 아래처럼 입력해줍니다.
+```bash
+mysql_secure_installation
+```
+
+### MySQL 간단 명령어
+```bash
+mysql> status;
+```
+- mysql 연결 상태 정보
+
+```bash
+mysql> show databases;
+```
+- Database 리스트
+
+```bash
+mysql> CREATE DATABASE somedatabase;
+```
+- 데이터베이스 생성
+
+```bash
+mysql> select database();
+```
+- 현재 사용중인 데이터 베이스 조회
+
+```bash
+mysql> use somedatabase;
+Database changed
+```
+- 데이터베이스 사용
+
+- [Prisma Database Connector - MySQL](https://www.prisma.io/docs/concepts/database-connectors/mysql)
+
 ## Local tunnel
 ## Clerk webhook
 ## Navbar

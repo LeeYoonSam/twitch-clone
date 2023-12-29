@@ -1,6 +1,10 @@
 # Twitch Clone
 
-Key Features:
+## 프로젝트 실행
+- `npm run dev`
+- `ngrok http --domain=national-utterly-beetle.ngrok-free.app 3000`
+
+## Key Features:
 - 📡 Streaming using RTMP / WHIP protocols 
 - 🌐 Generating ingress
 - 🔗 Connecting Next.js app to OBS / Your favorite streaming software 
@@ -77,13 +81,17 @@ Key Features:
 - [app/(auth) 생성](https://clerk.com/docs/references/nextjs/custom-signup-signin-pages)
   - sign-in 생성
   - sign-up 생성
-  - .env 에 환경 변수 추가
+  - [.env 에 환경 변수 추가](https://clerk.com/docs/references/nextjs/custom-signup-signin-pages#update-your-environment-variables)
     - 이 값은 사용자가 로그인하거나 가입할 때, 그리고 각 컴포넌트의 하단에 있는 각 링크를 클릭할 때 컴포넌트의 동작을 제어합니다.
 - app/(auth)/layout.tsx 생성
   - Clerk UI Layout
 
 ### dependencies
 - `npm install @clerk/nextjs`
+
+### Notes
+**[.env 에 환경 변수 추가](https://clerk.com/docs/references/nextjs/custom-signup-signin-pages#update-your-environment-variables)**
+- 이 작업을 하지 않으면 Clerk 의 sign-in 으로 접속되므로 페이지를 커스텀해도 보이지 않게 되므로 커스텀한 페이지를 보여주려면 .env 에 path 입력을 해야 합니다.
 
 ## Dark mode
 - app/globals.css 수정
@@ -188,7 +196,64 @@ Database changed
 - [Prisma Database Connector - MySQL](https://www.prisma.io/docs/concepts/database-connectors/mysql)
 
 ## Local tunnel
+- ngrok 설치 및 설정
+
+### [ngrok](https://ngrok.com/download) 설치
+- ngrok 은 리버스 프록시, 방화벽, API 게이트웨이, 글로벌 로드 밸런싱을 결합하여 앱과 API를 제공합니다.
+- `brew install ngrok/ngrok/ngrok`
+- ngrok 회원가입 / 로그인 후 대시보드 진입
+  - `ngrok config add-authtoken 2eZYdEQ8Hpe9JHsuJtRHk_iKUzA8Zg7KChaumVKMh2`
+- `ngrok http 3000`
+  ```bash
+    Session Status                online                                    
+    Account                       albert (Plan: Free)                       
+    Version                       3.5.0                                     
+    Region                        Japan (jp)                                
+    Latency                       38ms                                      
+    Web Interface                 http://127.0.0.1:4040                     
+    Forwarding                    https://767f-118-33-142-61.ngrok-free.app
+  ```
+  - `https://767f-118-33-142-61.ngrok-free.app` https 로 접근
+- ngrok > Dashboard > Cloud Edge > Domains > New Domain
+  - Start a Tunnel > 커맨드 라인에서 tunnel 시작하기
+  - `ngrok http --domain=national-utterly-beetle.ngrok-free.app 3000` 
+  터미널에 입력
+- Cloud Edge > Endpoints 로 들어가면 생성된 도메인 보이고 주소 복사가능
+- 주소로 접속하면 localhost 가 아닌 도메인으로 표시 및 https 접속
+
 ## Clerk webhook
+- Clerk Dashboard > Webhooks 에서 등록
+  - Endpoint URL 추가 : https://national-utterly-beetle.ngrok-free.app/api/webhooks/clerk
+  - Message Filtering > Filter events > user 필터링 > create
+    - created, deleted, updated
+- .env > `CLERK_WEBHOOK_SECRET=시크릿키 입력(Clerk Webhooks Endpoints > Signing Secret)`
+- svix 설치
+  - 엔드포인트 설정을 시작하려면 svix 패키지를 설치해야 합니다. 
+  - Svix는 웹훅 서명을 확인하기 위한 패키지를 제공하므로 웹훅 이벤트의 진위 여부를 쉽게 확인할 수 있습니다.
+- Webhook endpoint 만들기
+  - app/api/webhook/route.ts 생성
+    - svix 를 사용해서 웹훅 검증
+    - eventType 별로 database 연동
+      - create: 실제 로그인 후 DB 확인
+      - update: 유저정보에서 유저명 변경 후 DB 확인
+      - delete: 유저정보에서 계정 삭제 후 DB 확인
+  - middleware.ts 수정
+    ```ts
+    export default authMiddleware({
+      publicRoutes: ["/api/webhooks(.*)"]
+    });
+    ```
+  - [Clerk 에서 웹훅 테스트하기](https://clerk.com/docs/users/sync-data#test-the-webhook)
+    - Clerk > Webhooks > Endpoints > Testing 탭
+      - Send event: user.created 선택 > Send Example
+      - Send event: user.delete 선택 > Send Example
+
+### dependencies
+- `npm install svix`
+
+### 참고
+- [Sync Clerk data to your backend with webhooks](https://clerk.com/docs/users/sync-data#enable-webhooks)
+
 ## Navbar
 ## Sidebar
 ## Recommended list

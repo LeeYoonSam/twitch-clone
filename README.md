@@ -255,6 +255,19 @@ Database changed
 - [Sync Clerk data to your backend with webhooks](https://clerk.com/docs/users/sync-data#enable-webhooks)
 
 ## Navbar
+- app/(browse) 생성
+  - _component, (home) 폴더 생성 및 page 이동
+- shadcn-ui input 라이브러리 추가
+- query-string 라이브러리 추가
+- middleware.ts 수정
+  - publicRoutes 에 "/" 루트 추가
+- app/(browse)/_components/navbar 추가
+  - Navbar 컴포넌트 추가
+
+### dependencies
+- `npx shadcn-ui@latest add input`
+- `npm i query-string`
+
 ## Sidebar
 ## Recommended list
 ## Hydration error

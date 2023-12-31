@@ -269,6 +269,26 @@ Database changed
 - `npm i query-string`
 
 ## Sidebar
+- app/(browse)/_components/sidebar 사이드바 관련 컴포넌트 추가
+  - app/(browse)/_components/sidebar/index.tsx
+  - app/(browse)/_components/sidebar/toggle.tsx
+  - app/(browse)/_components/sidebar/wrapper.tsx
+- store/use-sidebar.ts 생성
+  - 사이드바 상태 훅
+- app/(browse)/_components/container.tsx 생성
+
+- components/hint.tsx 생성
+  - 다른 컴포넌트의 hint 를 표시하는 컴포넌트
+- app/(browse)/layout.tsx 수정
+  - Sidebar, Container 컴포넌트 추가
+
+### dependencies
+- `npm i zustand`
+  - 상태 관리 라이브러리
+- `npx shadcn-ui@latest add tooltip`
+- `npm i usehooks-ts`
+  - 타입스크립트로 작성되어 바로 사용할 수 있는 React 후크 라이브러리
+
 ## Recommended list
 ## Hydration error
 ## Follow service

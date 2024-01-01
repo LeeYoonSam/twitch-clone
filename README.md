@@ -301,7 +301,6 @@ Database changed
 - components/live-badge.tsx 추가
   - 라이브중인지 표시하기 위한 뱃지
 
-
 ### dependencies
 - `npx shadcn-ui@latest add avatar`
 - `npx shadcn-ui@latest add skeleton`
@@ -312,6 +311,39 @@ Database changed
 - 변형은 클래스 집합의 조건부 적용을 가능하게 하는 동시에 기본 변형을 표현할 수 있는 수단도 제공합니다.
 
 ## Hydration error
+- app/(browse)/_components/sidebar/toggle.tsx 수정
+  - 토클 스켈레톤 추가
+- app/(browse)/_components/sidebar/index.tsx 수정
+  - Recommended 스켈레톤 추가
+- app/(browse)/_components/sidebar/wrapper.tsx 수정
+  - Hydration 에러 방지
+  - `useIsClient()` 를 사용
+
+### Note
+- 클라이언트 / 서버 사이드 렌더링에 따라 hydration 에러가 발생한다면 아래와 같이 예외처리를 할수 있습니다.
+```ts
+const [isClient, setIsClient] = useState(false);
+
+useEffect(() => {
+  setIsClient(true);
+}, []);
+
+if (!isClient) return (
+  <aside
+    className="fixed left-0 flex flex-col w-[70px] lg:w-60 h-full bg-background border-r border-[#2D2E35] z-50"
+  >
+    <ToggleSkeleton />
+    <RecommendedSkeleton />
+  </aside>
+);
+```
+- usehooks-ts 를 사용하는 방법(useState 사용하지 않음)
+```ts
+const isClient = useIsClient();
+.
+.
+```
+
 ## Follow service
 ## Follow list
 ## Block service

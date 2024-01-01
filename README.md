@@ -290,6 +290,27 @@ Database changed
   - 타입스크립트로 작성되어 바로 사용할 수 있는 React 후크 라이브러리
 
 ## Recommended list
+- lib/auth-service.ts 생성
+  - 인증 서비스
+- lib/recommended-service.ts 생성
+  - 추천 리스트에서 사용할 서비스
+- app/(browse)/_components/sidebar/index.tsx 수정
+  - Recommended 추가
+- components/user-avatar.tsx 생성
+  - 사용자 아바타 컴포넌트
+- components/live-badge.tsx 추가
+  - 라이브중인지 표시하기 위한 뱃지
+
+
+### dependencies
+- `npx shadcn-ui@latest add avatar`
+- `npx shadcn-ui@latest add skeleton`
+
+### Notes
+**CVA(class-variance-authority)**
+- CVA를 포함하면 사용자 친화적인 인터페이스를 마음대로 사용할 수 있어 이형 상품 정의를 간소화할 수 있습니다.
+- 변형은 클래스 집합의 조건부 적용을 가능하게 하는 동시에 기본 변형을 표현할 수 있는 수단도 제공합니다.
+
 ## Hydration error
 ## Follow service
 ## Follow list

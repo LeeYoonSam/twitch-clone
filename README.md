@@ -345,6 +345,10 @@ const isClient = useIsClient();
 ```
 
 ## Follow service
+- ngrok 으로 웹훅을 사용할수 있게 로컬 실행
+- app/(browse)/[username]/page.tsx 생성
+  - 유저 페이지
+
 ## Follow list
 ## Block service
 ## Creator dashboard

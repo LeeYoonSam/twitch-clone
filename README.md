@@ -347,7 +347,23 @@ const isClient = useIsClient();
 ## Follow service
 - ngrok 으로 웹훅을 사용할수 있게 로컬 실행
 - app/(browse)/[username]/page.tsx 생성
-  - 유저 페이지
+  - 유저 정보 페이지
+- lib/user-service.ts 생성
+  - DB 에서 유저명으로 유저정보 가져오기
+- lib/follow-service.ts 생성
+  - DB 에서 팔로우 유저 관련 정보
+- app/layout.tsx 수정
+  - sonner 토스트 추가
+- actions/follow.ts 생성
+  - 서버 사이드 렌더링
+  - 유저정보 캐시
+  - 팔로우 정보 가져오기
+- app/(browse)/[username]/_components/actions.tsx 생성
+  - 팔로우 버튼 및 액션
+
+### dependencies
+- `npm i sonner`
+  - 토스트 라이브러리
 
 ## Follow list
 ## Block service

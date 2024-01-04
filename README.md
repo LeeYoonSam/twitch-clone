@@ -366,6 +366,18 @@ const isClient = useIsClient();
   - 토스트 라이브러리
 
 ## Follow list
+- lib/follow-service.ts 수정
+  - 팔로잉 리스트 가져오기
+- app/(browse)/_components/sidebar/following.tsx 생성
+  - 팔로잉 컴포넌트
+- app/(browse)/_components/sidebar/index.tsx 수정
+  - 팔로잉 컴포넌트 추가
+  - 스켈레톤 추가
+- app/(browse)/_components/sidebar/wrapper.tsx 수정
+  - 스켈레톤 추가
+- lib/recommended-service.ts 수정
+  - 추천 리스트에서 팔로워 제거
+
 ## Block service
 ## Creator dashboard
 ## Stream model

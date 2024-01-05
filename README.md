@@ -383,9 +383,16 @@ const isClient = useIsClient();
   - Block 모델 추가
   - npx prisma generate
   - npx prisma db push
-
-  
-### dependencies
+- lib/block-service.ts 생성
+  - DB 유저 블록 정보 조회, 생성 및 삭제 기능 추가
+- app/(browse)/[username]/page.tsx 수정
+  - 사용자 정보 페이지 블록 정보 추가
+- app/(browse)/[username]/_components/actions.tsx 수정
+  - 블록 액션 추가
+- lib/recommended-service.ts 수정
+  - DB 조회시 블록 사용자 제외
+- lib/follow-service.ts 수정
+  - DB 조회시 블록 사용자 제외
 
 ## Creator dashboard
 ## Stream model

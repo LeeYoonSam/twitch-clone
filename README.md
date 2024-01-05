@@ -379,6 +379,14 @@ const isClient = useIsClient();
   - 추천 리스트에서 팔로워 제거
 
 ## Block service
+- prisma/schema.prisma 수정
+  - Block 모델 추가
+  - npx prisma generate
+  - npx prisma db push
+
+  
+### dependencies
+
 ## Creator dashboard
 ## Stream model
 ## Chat settings

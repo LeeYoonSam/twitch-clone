@@ -398,6 +398,21 @@ const isClient = useIsClient();
 - app/(dashboard)/u/[username] 대시보드 관련 컴포넌트 생성
 - lib/auth-service.ts 수정
   - 유저 이름 가져오기
+- app/(dashboard)/u/[username]/layout.tsx 수정
+  - 컨테이너 컴포넌트 추가
+- app/(dashboard)/u/[username]/_components/container.tsx 생성
+  - 컨텐트 영역 컨테이너 컴포넌트 추가
+- store/use-creator-sidebar.ts 생성
+  - sidebar 에서 사용할 상태 관리
+- app/(dashboard)/u/[username]/_components/sidebar 컴포넌트 생성
+  - app/(dashboard)/u/[username]/_components/sidebar/wrapper.tsx
+    - 사이드바 전체를 감싸는 컴포넌트
+  - app/(dashboard)/u/[username]/_components/sidebar/toggle.tsx
+    - 사이드바 확장/비확장 컴포넌트
+  - app/(dashboard)/u/[username]/_components/sidebar/navigation.tsx
+    - 사이드바 네비게이션 컴포넌트
+  - app/(dashboard)/u/[username]/_components/sidebar/nav-item.tsx
+    - 사이드바 네비게이션 아이템 컴포넌트
 
 ## Stream model
 ## Chat settings

@@ -395,6 +395,10 @@ const isClient = useIsClient();
   - DB 조회시 블록 사용자 제외
 
 ## Creator dashboard
+- app/(dashboard)/u/[username] 대시보드 관련 컴포넌트 생성
+- lib/auth-service.ts 수정
+  - 유저 이름 가져오기
+
 ## Stream model
 ## Chat settings
 

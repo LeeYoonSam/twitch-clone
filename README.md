@@ -415,6 +415,41 @@ const isClient = useIsClient();
     - 사이드바 네비게이션 아이템 컴포넌트
 
 ## Stream model
+- prisma/schema.prisma 수정
+  - Stream 모델 추가
+  - TextSearch 지원
+    ```prisma
+    generator client {
+      provider = "prisma-client-js"
+      previewFeatures = ["fullTextSearch", "fullTextIndex"]
+    }
+    ```
+    - previewFeatures 추가
+
+### Node
+[**Prisma Full-text search**](https://www.prisma.io/docs/orm/prisma-client/queries/full-text-search)
+- Prisma 클라이언트는 버전 2.30.0 이상의 PostgreSQL 데이터베이스와 버전 3.8.0 이상의 MySQL 데이터베이스에 대한 전체 텍스트 검색을 지원합니다.
+- 전체 텍스트 검색을 활성화하면 데이터베이스 열 내의 텍스트를 검색하여 애플리케이션에 검색 기능을 추가할 수 있습니다.
+- MySQL의 경우 전체 텍스트 인덱스 미리 보기 기능 플래그도 포함해야 합니다:
+
+예를 들어 다음 검색은 '고양이'라는 단어가 포함된 모든 게시물을 반환
+```ts
+// All posts that contain the word 'cat'.
+const result = await prisma.posts.findMany({
+  where: {
+    body: {
+      search: 'cat',
+    },
+  },
+})
+```
+
+[**Prisma Full text indexes (MySQL and MongoDB)**](https://www.prisma.io/docs/orm/prisma-schema/data-model/indexes#full-text-indexes-mysql-and-mongodb)
+- 전체 텍스트 인덱스 미리보기 기능은 버전 3.6.0 이상에서 MySQL 및 MongoDB의 전체 텍스트 인덱스에 대한 인스펙션 및 마이그레이션을 지원합니다. 
+- 이 기능은 @@fulltext 속성을 사용하여 구성할 수 있습니다. 
+- 데이터베이스의 기존 전체 텍스트 인덱스는 db pull으로 인트로스펙팅한 후 Prisma 스키마에 추가되며, Prisma 마이그레이션을 사용할 때 Prisma 스키마에 추가된 새 전체 텍스트 인덱스가 데이터베이스에 생성됩니다.
+- 이렇게 하면 이전에 작동하지 않던 일부 데이터베이스 스키마의 유효성 검사 오류도 방지할 수 있습니다.
+
 ## Chat settings
 
 # [Part 2](https://www.youtube.com/watch?v=nav55-4ISg4)

@@ -454,6 +454,22 @@ const result = await prisma.posts.findMany({
 - 이렇게 하면 이전에 작동하지 않던 일부 데이터베이스 스키마의 유효성 검사 오류도 방지할 수 있습니다.
 
 ## Chat settings
+- app/(dashboard)/u/[username]/chat/page.tsx 생성
+  - 채팅 화면 구현
+- lib/stream-service.ts 생성
+  - Stream 서비스 user에 해당하는 stream 가져오기
+- actions/stream.ts 생성
+  - server 용 stream actions 생성
+- shadcn-ui `switch` 추가
+- components/ui/switch.tsx 수정
+  - 스위치 색상 수정
+- app/(dashboard)/u/[username]/chat/_components/toggle-card.tsx 생성
+  - 스위치 카드 컴포넌트
+- app/(dashboard)/u/[username]/chat/loading.tsx 생성
+  - 페이지 로딩에 스켈레톤 표시
+
+### dependencies
+- `npx shadcn-ui@latest add switch`
 
 # [Part 2](https://www.youtube.com/watch?v=nav55-4ISg4)
 ## Key settings

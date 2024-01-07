@@ -425,6 +425,9 @@ const isClient = useIsClient();
     }
     ```
     - previewFeatures 추가
+- `npx prisma migrate reset` 디비 초기화
+- Clerk 유저 삭제 후 다시 생성
+- 회원가입 후 stream 생성 되었는지 확인
 
 ### Node
 [**Prisma Full-text search**](https://www.prisma.io/docs/orm/prisma-client/queries/full-text-search)

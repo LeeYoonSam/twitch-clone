@@ -471,8 +471,28 @@ const result = await prisma.posts.findMany({
 ### dependencies
 - `npx shadcn-ui@latest add switch`
 
+
 # [Part 2](https://www.youtube.com/watch?v=nav55-4ISg4)
 ## Key settings
+- app/(dashboard)/u/[username]/keys/page.tsx 생성
+  - Keys 화면 생성
+- app/(dashboard)/u/[username]/keys/_components/url-card.tsx 생성
+  - URL 영역을 표시하는 컴포넌트
+- app/(dashboard)/u/[username]/keys/_components/key-card.tsx 생성
+  - 키 영역을 표시하는 컴포넌트
+  - show/hide 에 따라서 Input 타입 변경(text/password)
+- app/(dashboard)/u/[username]/keys/_components/copy-button.tsx 생성
+  - 버튼 클릭시 값이 복사되는 컴포넌트
+  - value 를 넘겨서 그 값을 복사
+- app/(dashboard)/u/[username]/keys/_components/connect-modal.tsx 생성
+  - 연결을 위한 다이얼로그 컴포넌트
+  - dialog 안에서 select, alert 구현
+
+### dependencies
+- `npx shadcn-ui@latest add dialog`
+- `npx shadcn-ui@latest add select`
+- `npx shadcn-ui@latest add alert`
+
 ## Ingress
 ## OBS crash course
 ## Livekit webhook

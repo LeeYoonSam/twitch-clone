@@ -505,6 +505,23 @@ const result = await prisma.posts.findMany({
 - `npm i livekit-server-sdk`
 
 ## OBS crash course
+### [OBS Studio](https://obsproject.com/ko)
+- 영상 녹화와 실시간 방송을 할 수 있는 무료 및 공개 소프트웨어입니다.
+
+### OBS 스트리밍
+1. 설정 > 방송
+  - 서비스: 사용자 지정...
+  - 서버: **스트림 서버 URL 입력**
+  - 스트림 키: **스트림키 입력**
+2. 방송 시작
+
+### Livekit 네트워크 트래픽 확인
+Egress/Ingress 탭 확인
+- Egress: 서버 내부에서 외부로 나가는 트래픽을 의미
+- Ingress: 외부로부터 서버 내부로 유입되는 네트워크 트래픽을 의미
+
+스트리밍 후에 Ingresses에 항목이 추가됨
+
 ## Livekit webhook
 ## Viewer token
 ## Video component

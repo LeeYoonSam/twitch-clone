@@ -494,6 +494,10 @@ const result = await prisma.posts.findMany({
 - `npx shadcn-ui@latest add alert`
 
 ## Ingress
+- actions/ingress.ts 생성
+  - 서버에서 사용하는 액션 구현
+- app/(dashboard)/u/[username]/keys/_components/connect-modal.tsx 수정
+  - TRMP, WHIP 을 사용해서 서버 생성
 
 ### dependencies
 - `npm i @livekit/componenets-react`

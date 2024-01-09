@@ -494,6 +494,12 @@ const result = await prisma.posts.findMany({
 - `npx shadcn-ui@latest add alert`
 
 ## Ingress
+
+### dependencies
+- `npm i @livekit/componenets-react`
+- `npm i livekit-client`
+- `npm i livekit-server-sdk`
+
 ## OBS crash course
 ## Livekit webhook
 ## Viewer token

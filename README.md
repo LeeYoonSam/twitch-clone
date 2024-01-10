@@ -523,6 +523,24 @@ Egress/Ingress 탭 확인
 스트리밍 후에 Ingresses에 항목이 추가됨
 
 ## Livekit webhook
+- lib/recommended-service.ts 수정
+  - include stream
+- lib/follow-service.ts 수정
+  - include stream
+- app/(browse)/_components/sidebar/recommended.tsx 수정
+  - isLive 속성 수정
+- app/(browse)/_components/sidebar/following.tsx 수정
+  - isLive 속성 수정
+- LiveKit - 웹훅 EndPoint 추가
+  - 대시보드 > Settings > WEBHOOKS > ADD NEW ENDPOINT
+    - URL: https://national-utterly-beetle.ngrok-free.app/api/webhooks/livekit
+    - API Key: **SIGNING API KEY**
+- app/api/webhooks/livekit/route.ts 생성
+  - 웹훅 API 추가
+  - ingress 시작/종료시에 stream.isLive 상태 변경
+- middleware.ts 확인
+  - "/api/webhooks(.*)" 추가 되었는지 확인
+
 ## Viewer token
 ## Video component
 ## Chat component

@@ -542,7 +542,61 @@ Egress/Ingress 탭 확인
   - "/api/webhooks(.*)" 추가 되었는지 확인
 
 ## Viewer token
+- lib/recommended-service.ts 수정
+  - include stream 에 필요한 isLive 만 가져오도록 select 추가
+- lib/follow-service.ts 수정
+  - include stream 에 필요한 isLive 만 가져오도록 select 추가
+- app/(browse)/_components/sidebar/following.tsx 수정
+  - props Stream 대신 isLive 만 선언
+- app/(browse)/_components/sidebar/recommended.tsx 수정
+  - props Stream 대신 isLive 만 선언
+
+### dependencies
+- `npm i jwt-decode`
+  - 이 라이브러리는 토큰의 유효성을 검사하지 않으며, 잘 형성된 JWT는 모두 디코딩할 수 있습니다. 
+  - 서버 측 로직에서 express-jwt, koa-jwt, Microsoft.AspNetCore.Authentication.JwtBearer 등과 같은 것을 사용하여 토큰의 유효성을 검사해야 합니다.
+- `npm i uuid`
+  - uuid 가져오지 못하는 문제가 있어서  devDependencies 추가
+  ```
+  "devDependencies": {
+      ...
+      "@types/uuid": "^9.0.7",
+    }"
+  ```
+- app/(dashboard)/u/[username]/(home)/page.tsx 수정
+  - StreamPlayer 컴포넌트 추가
+- actions/token.ts 생성
+  - livekit 토큰을 사용해서 토큰 생성
+- hooks/use-viewer-token.ts 생성
+  - 토큰 생성을 요청
+  - jwt-decode 를 통해서 토큰을 디코딩
+  - 토큰 정보로 여러가지 기본 정보를 유지시켜주는 훅
+
 ## Video component
+- next.config.js 수정
+  - rule 추가
+- components/stream-player 생성
+  - stream 에 보여줄 컴포넌트 추가
+    - index, video
+
+### Note
+**next.config.js 추가한 룰 분석**
+```
+webpack: (config) => {
+    config.module.rules.push({
+      test: /\.mjs$/,
+      include: /node_modules/,
+      type: "javascript/auto",
+    });
+
+    return config;
+},
+```
+- test: 정규 표현식을 사용하여 파일 경로의 확장자가 .mjs로 끝나는지 확인합니다.
+- include: 파일이 node_modules 디렉터리에 위치해야 합니다.
+- type: 파일의 형식을 지정합니다. 여기서는 "javascript/auto"로 설정되어 있습니다.
+즉, 이 규칙은 프로젝트의 node_modules 디렉터리에 속한 확장자가 .mjs인 파일들을 webpack이 자동으로 JavaScript 파일로 처리하도록 지시하는 것입니다.
+
 ## Chat component
 ## Community component
 ## Header component

@@ -578,6 +578,23 @@ Egress/Ingress 탭 확인
 - components/stream-player 생성
   - stream 에 보여줄 컴포넌트 추가
     - index, video
+- components/stream-player/live-video.tsx 생성
+  - 비디오 컴포넌트 추가
+  - 상태에 따라서 offline, loading, live 컴포넌트 교체
+  - 컨트롤러 추가
+    - fullscreen
+    - volume
+- components/stream-player/offline-video.tsx 생성
+  - 비디오 오프라인 컴포넌트
+- components/stream-player/loading-video.tsx 생성
+  - 비디오 로딩 컴포넌트
+- components/stream-player/fullscreen-control.tsx 생성
+  - 비디오 풀 스크린 컴포넌트
+- components/stream-player/volumn-control.tsx 생성
+  - 볼륨 풀 스크린 컴포넌트
+
+### dependencies
+- `npx shadcn-ui@latest add slider`
 
 ### Note
 **next.config.js 추가한 룰 분석**

@@ -615,6 +615,36 @@ webpack: (config) => {
 즉, 이 규칙은 프로젝트의 node_modules 디렉터리에 속한 확장자가 .mjs인 파일들을 webpack이 자동으로 JavaScript 파일로 처리하도록 지시하는 것입니다.
 
 ## Chat component
+- components/stream-player/index.tsx 수정
+  - 채팅 사이드바 토글 추가
+  - 채팅 컴포넌트 추가
+- components/stream-player/chat.tsx 생성
+  - 채팅 헤더 컴포넌트 추가 
+  - 채팅 리스트 추가
+  - 채팅 인풋 추가
+- components/stream-player/chat-header.tsx 생성
+  - 채팅 헤더 컴포넌트
+- components/stream-player/chat-toggle.tsx 생성
+  - 채팅 헤더 사이드바 토글 버튼
+- components/stream-player/variant-toggle.tsx 생성
+  - 채팅 헤더 채팅/커뮤니티 토글 버튼
+- components/stream-player/chat-form.tsx 생성
+  - 채팅 폼 컴포넌트
+- components/stream-player/chat-info.tsx 생성
+  - 채팅 폼 안의 정보 컴포넌트
+- components/stream-player/chat-list.tsx 생성
+  - 채팅 리스트 컴포넌트
+- components/stream-player/chat-message.tsx 생성
+  - 채팅 리스트 아이템 컴포넌트
+  - date-fns 로 시간 포맷 구성
+- store/use-chat-sidebar.ts 생성
+  - 채팅에서 사용할 사이드바 훅
+- lib/utils.ts 수정
+  - string 으로 색상코드를 가져오는 유틸 추가
+
+### dependencies 
+- `npm i date-fns`
+
 ## Community component
 ## Header component
 ## Info card

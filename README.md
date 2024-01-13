@@ -646,6 +646,22 @@ webpack: (config) => {
 - `npm i date-fns`
 
 ## Community component
+- components/stream-player/chat-community.tsx 생성
+- components/stream-player/community-item.tsx 생성
+- components/stream-player/chat.tsx 수정
+- components/stream-player/index.tsx 수정
+  - 구현된 스켈레톤을 조합해서 표시
+- components/stream-player/chat-header.tsx 수정
+  - 헤더 스켈레톤 추가
+- components/stream-player/video.tsx 수정
+  - 비디오 스켈레톤 생성
+- app/(dashboard)/u/[username]/(home)/loading.tsx 생성
+  - 스트림 플레이어 스켈레톤 로딩 적용
+
+### dependencies
+- `npx shadcn-ui@latest add scroll-area`
+  스크롤 영역 범위
+
 ## Header component
 ## Info card
 ## About card

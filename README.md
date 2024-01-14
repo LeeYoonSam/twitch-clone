@@ -663,6 +663,18 @@ webpack: (config) => {
   스크롤 영역 범위
 
 ## Header component
+- components/stream-player/header.tsx 생성
+  - 헤더 컴포넌트 생성
+  - 스켈레톤 컴포넌트 추가
+- components/stream-player/actions.tsx 생성
+  - Follow/Unfollow 액션 추가
+  - 스켈레톤 컴포넌트 추가
+- components/stream-player/index.tsx 수정
+  - 헤더 컴포넌트 추가
+  - 스켈레톤 추가
+- components/verified-mark.tsx 생성
+  - 인증 마크 컴포넌트 생성
+
 ## Info card
 ## About card
 ## User page

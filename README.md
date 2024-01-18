@@ -676,6 +676,17 @@ webpack: (config) => {
   - 인증 마크 컴포넌트 생성
 
 ## Info card
+- components/stream-player/index.tsx 수정
+  - InfoCard 컴포넌트 추가
+- components/stream-player/info-card.tsx 생성
+  - 스트림 정보 수정 카드
+- components/stream-player/info-modal.tsx 생성
+  - 스트림 정보 수정 form
+
+### dependencies
+- `npx shadcn-ui@latest add separator`
+- `npx shadcn-ui@latest add label`
+
 ## About card
 ## User page
 ## Home page

@@ -682,10 +682,39 @@ webpack: (config) => {
   - 스트림 정보 수정 카드
 - components/stream-player/info-modal.tsx 생성
   - 스트림 정보 수정 form
+- uploadthing 설정
+  - app/api/uploadthing/core.ts 생성
+    - 파일 업로드 설정
+    - 미들웨어 설정
+    - 업로드 완료시 디비 저장
+  - app/api/uploadthing/route.ts 생성
+  - tailwind.config.ts 스타일 추가
+    - `withUt` 로 wrapping
+  - lib/uploadthing.ts - uploadthing component 추가
+  - middleware.ts - publicRoutes 추가
+    - `/api/uploadthing`,
+  - next.config.js 이미지 도메인 추가
+- components/stream-player/info-modal.tsx 수정
+  - 썸네일 UploadDropzone 추가
+  - 이미지 업로드 추가
+  - 이미지 삭제 추가
 
 ### dependencies
 - `npx shadcn-ui@latest add separator`
 - `npx shadcn-ui@latest add label`
+- `npm install uploadthing @uploadthing/react`
+
+### Note
+**uploadthing 설정**
+- [uploadthing](https://uploadthing.com/) 로그인 후 프로젝트 생성
+- API key, secret -> .env 복사
+- `npm install uploadthing @uploadthing/react` 디펜던시 추가
+- [uploadthing docs](https://docs.uploadthing.com/getting-started/appdir)
+  - api/uploadthing/core.ts 설정 추가
+  - api/uploadthing/route.ts 추가
+  - tailwind.config.ts 스타일 추가
+    - `withUt` 로 wrapping
+  - uploadthing component 추가
 
 ## About card
 ## User page

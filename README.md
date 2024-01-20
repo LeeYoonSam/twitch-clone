@@ -717,6 +717,55 @@ webpack: (config) => {
   - uploadthing component 추가
 
 ## About card
+- components/stream-player/about-card.tsx 생성
+  - Host 의 정보를 표시
+- components/stream-player/index.tsx 수정
+  - AboutCard 컴포넌트 추가
+- actions/user.ts 생성
+  - 서버 사이드에서 사용하는 유저 업데이트 action
+- lib/user-service.ts 수정
+  - 카운트 추가
+- components/stream-player/bio-modal.tsx 생성
+  - 바이오 메시지 Form
+  - 취소, 저장 버튼 액션
+
+### dependencies
+- `npx shadcn-ui@latest add textarea`
+
+### Note
+
+### `asChild` 는 무엇인가?
+React에서 asChild를 사용하는 이유는 컴포넌트의 렌더링을 자식 요소에 위임하기 위해서입니다. 
+
+예를 들어, 다이얼로그 컴포넌트가 기본적으로 <div>를 사용하지만, 사용자가 <div> 대신 <section>이나 커스텀 <Box> 요소를 사용하도록 할 수 있습니다. 이때 asChild를 사용하면, 다이얼로그 컴포넌트의 자식 요소로 원하는 요소를 전달할 수 있습니다.
+
+```tsx
+<Dialog asChild>
+  <section>...</section>
+</Dialog>
+```
+
+- asChild를 사용하면, HTML 구조가 변경되어 스타일이 깨지거나, 내부적이거나 외부적인 효과에 따라 스타일을 분리하거나, 컴포넌트가 중첩되어 동작이 이상해지거나, HTML 요소가 올바르게 구성되지 않는 등의 문제를 피할 수 있습니다.
+
+asChild를 사용해야 하는 경우는 다음과 같습니다.
+- 컴포넌트의 기본 요소를 다른 요소로 바꾸고 싶을 때
+- 컴포넌트의 기능을 다른 컴포넌트에 적용하고 싶을 때
+- 컴포넌트의 렌더링을 사용자가 제어하고 싶을 때
+
+### prisma include 로 카운트 추가하기
+  ```
+  include: {
+    stream: true,
+    _count: {
+      select: {
+        followedBy: true,
+      },
+    },
+  },
+  ```
+  - _count: 카운트 포함
+  - select.followedBy: followedBy 의 카운트
+
 ## User page
 ## Home page
 ## Search page

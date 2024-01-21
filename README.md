@@ -767,6 +767,18 @@ asChild를 사용해야 하는 경우는 다음과 같습니다.
   - select.followedBy: followedBy 의 카운트
 
 ## User page
+- middleware.ts 수정
+- actions/block.ts 수정
+  - block 유저 로직 수정
+- app/(browse)/[username]/page.tsx 수정
+  - StreamPlayer 추가
+- components/stream-player/chat-form.tsx 수정
+  - isDelayed 조건 추가
+- app/(browse)/[username] 예외처리 화면 추가
+  - app/(browse)/[username]/error.tsx
+  - app/(browse)/[username]/loading.tsx
+  - app/(browse)/[username]/not-found.tsx
+
 ## Home page
 ## Search page
 ## Unblock page

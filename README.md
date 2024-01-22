@@ -780,6 +780,18 @@ asChild를 사용해야 하는 경우는 다음과 같습니다.
   - app/(browse)/[username]/not-found.tsx
 
 ## Home page
+- lib/feed-service.ts 생성
+  - 스트림 리스트 가져오는 서비스
+- app/(browse)/(home)/page.tsx 수정
+  - Result 컴포넌트 추가
+- app/(browse)/(home)/_components/result.tsx 생성
+  - 스트림 그리드 리스트 컴포넌트 추가
+- app/(browse)/(home)/_components/result-card.tsx 생성
+  - 스트림 리스트 아이템 컴포넌트 추가
+  - 썸네일 컴포넌트 사용
+- components/thumbnail.tsx 생성
+  - 썸네일 표시 컴포넌트 추가
+
 ## Search page
 ## Unblock page
 ## Deployment

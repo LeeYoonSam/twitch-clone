@@ -793,5 +793,14 @@ asChild를 사용해야 하는 경우는 다음과 같습니다.
   - 썸네일 표시 컴포넌트 추가
 
 ## Search page
+- 타입 리팩토링 및 라이브뱃지 썸네일 컴포넌트로 이관
+  - components/stream-player/index.tsx
+  - components/thumbnail.tsx
+  - lib/user-service.ts
+- app/(browse)/search/page.tsx 생성
+  - 검색 결과 페이지 추가
+- app/(browse)/search/_components/result.tsx 생성
+  - 검색 결과 컴포넌트
+
 ## Unblock page
 ## Deployment

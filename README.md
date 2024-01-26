@@ -801,6 +801,12 @@ asChild를 사용해야 하는 경우는 다음과 같습니다.
   - 검색 결과 페이지 추가
 - app/(browse)/search/_components/result.tsx 생성
   - 검색 결과 컴포넌트
+  - ResultCard 컴포넌트 추가
+  - Skeleton 추가
+- lib/search-service.ts 생성
+  - 검색시 사용할 db service 추가
+- app/(browse)/search/_components/result-card.tsx 생성
+  - 검색 결과를 표시할 카드 컴포넌트
 
 ## Unblock page
 ## Deployment

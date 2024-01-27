@@ -68,7 +68,7 @@ export const ChatCommunity = ({
             key={participant.identity}
             hostName={hostName}
             viewerName={viewerName}
-            participantName = {participant.name}
+            participantName={participant.name}
             participantIdentity={participant.identity}
           />
         ))}

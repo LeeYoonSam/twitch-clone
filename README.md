@@ -809,4 +809,20 @@ asChild를 사용해야 하는 경우는 다음과 같습니다.
   - 검색 결과를 표시할 카드 컴포넌트
 
 ## Unblock page
+- app/(dashboard)/u/[username]/community/page.tsx 생성
+  - 커뮤니티 페이지
+  - DataTable 추가
+- app/(dashboard)/u/[username]/community/_components/columns.tsx 생성
+  - `tanstack/react-table` 의 ColumnDef 를 상속받아서 DataTable 컬럼 구현
+- app/(dashboard)/u/[username]/community/_components/data-table.tsx 생성
+  - 실제 `tanstack/react-table` 과 `shadcn-ui table` 을 사용해서 테이블 UI 구현
+- lib/block-service.ts 수정
+  - Unblock 기능 추가
+- app/(dashboard)/u/[username]/community/_components/unblock-button.tsx 생성
+  - Unblock 버튼 컴포넌트
+
+### dependencies
+- `npx shadcn-ui@latest add table`
+- `npm install @tanstack/react-table`
+
 ## Deployment

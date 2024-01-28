@@ -826,3 +826,9 @@ asChild를 사용해야 하는 경우는 다음과 같습니다.
 - `npm install @tanstack/react-table`
 
 ## Deployment
+- lib/search-service.ts 수정
+  - include -> select 로 수정
+- middleware.ts 수정
+  - publicRoutes - search 추가
+- package.json 수정
+  - script - "postinstall": "prisma generate" 추가
